@@ -10,6 +10,7 @@
  *
  * @package WDS_BB_Custom_Field
  * @since 1.0
+ * @see https://kb.wpbeaverbuilder.com/article/596-cmdg-01-create-a-plugin
  */
 
 define( 'WDS_BB_CUSTOM_FIELD_DIR', plugin_dir_path( __FILE__ ) );
