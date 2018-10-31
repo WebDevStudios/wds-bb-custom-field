@@ -9,23 +9,23 @@
  * Text Domain: wds-bb-custom-field
  */
 
+define( 'WDS_BB_CUSTOM_FIELD_DIR', plugin_dir_path( __FILE__ ) );
 
-
-function wds_bb_custom_field() {
-	require_once 'include/class-wds-bb-custom-field.php';
-
-	static $wds_bb_custom_field;
-	if ( ! $wds_bb_custom_field ) {
-		$wds_bb_custom_field = new WDS_BB_Custom_Field();
+function wds_bb_custom_field_plugin() {
+	static $plugin;
+	if ( ! $plugin ) {
+		require_once WDS_BB_CUSTOM_FIELD_DIR . 'include/class-wds-bb-custom-field-plugin.php';
+		$plugin = new WDS_BB_Custom_Field_Plugin();
 	}
-	return $wds_bb_custom_field;
+	return $plugin;
 }
 
-function wds_bb_hook() {
+function wds_bb_custom_field_hook() {
 	if ( ! class_exists( 'FLBuilder' ) ) {
 		return;
 	}
-	$wds_bb = wds_bb_custom_field();
-	$wds_bb->register_hooks();
+
+	$plugin = wds_bb_custom_field_plugin();
+	$plugin->register_hooks();
 }
-add_action( 'plugins_loaded', 'wds_bb_hook' );
+add_action( 'plugins_loaded', 'wds_bb_custom_field_hook' );

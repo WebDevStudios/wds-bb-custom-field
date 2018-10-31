@@ -1,6 +1,6 @@
 <?php
 
-class WDS_BB_Custom_Field {
+class WDS_BB_Custom_Field_Plugin {
 
 	public function register_hooks() {
 		// Load custom modules.
@@ -11,11 +11,11 @@ class WDS_BB_Custom_Field {
 	}
 
 	public function load_modules() {
-		require_once 'include/modules/custom-module/class-wds-bb-custom-module.php';
+		require_once WDS_BB_CUSTOM_FIELD_DIR . 'include/modules/custom-module/class-wds-bb-custom-module.php';
 	}
 
 	public function register_fields( $fields ) {
-		$fields['wds-bb-post-categories'] = 'include/fields/post-categories.php';
+		$fields['wds-bb-post-categories'] = WDS_BB_CUSTOM_FIELD_DIR . 'include/fields/post-categories.php';
 		return $fields;
 	}
 
