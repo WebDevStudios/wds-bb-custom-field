@@ -7,10 +7,20 @@
  * Author URI:  https://webdevstudios.com
  * License:     GPLv2+
  * Text Domain: wds-bb-custom-field
+ *
+ * @package WDS_BB_Custom_Field
+ * @since 1.0
  */
 
 define( 'WDS_BB_CUSTOM_FIELD_DIR', plugin_dir_path( __FILE__ ) );
 
+/**
+ * Get an instance of our plugin class.
+ *
+ * @return WDS_BB_Custom_Field_Plugin
+ * @author Justin Foell <justin.foell@webdevstudios.com>
+ * @since  1.0
+ */
 function wds_bb_custom_field_plugin() {
 	static $plugin;
 	if ( ! $plugin ) {
@@ -20,6 +30,13 @@ function wds_bb_custom_field_plugin() {
 	return $plugin;
 }
 
+/**
+ * Hook our plugin up once all plugins are loaded.
+ *
+ * @return void
+ * @author Justin Foell <justin.foell@webdevstudios.com>
+ * @since  1.0
+ */
 function wds_bb_custom_field_hook() {
 	if ( ! class_exists( 'FLBuilder' ) ) {
 		return;
