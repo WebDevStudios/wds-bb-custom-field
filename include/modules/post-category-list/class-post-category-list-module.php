@@ -15,6 +15,13 @@
 class Post_Category_List_Module extends FLBuilderModule {
 
 	/**
+	 * Default post count limit.
+	 *
+	 * @since 1.0
+	 */
+	const POST_COUNT_DEFAULT = 5;
+
+	/**
 	 * Module constructor.
 	 *
 	 * @see https://kb.wpbeaverbuilder.com/article/597-cmdg-02-add-a-module-to-your-plugin
@@ -33,6 +40,27 @@ class Post_Category_List_Module extends FLBuilderModule {
 			)
 		);
 	}
+
+	/**
+	 * Set up a WP_Query based on our module's settings.
+	 *
+	 * @return WP_Query
+	 * @author Justin Foell <justin.foell@webdevstudios.com>
+	 * @since  NEXT
+	 */
+	public function category_posts_query() {
+		return new WP_Query( array(
+			'posts_per_page' => $this->settings->post_count,
+			'nopaging'       => true,
+			'tax_query'      => array(
+				array(
+					'taxonomy' => 'category',
+					'field'    => 'id',
+					'terms'    => $this->settings->post_categories,
+				),
+			),
+		) );
+	}
 }
 
 /**
@@ -48,15 +76,20 @@ FLBuilder::register_module(
 			'sections' => array(
 				'general' => array(
 					'fields' => array(
-						'list_title'    => array(
+						'list_title'      => array(
 							'type'        => 'text',
 							'label'       => __( 'List Title', 'wds-bb-custom-field' ),
 							'default'     => '',
 							'placeholder' => __( 'Enter a title or leave blank to omit', 'wds-bb-custom-field' ),
 						),
-						'post_category' => array(
+						'post_count'      => array(
+							'type'    => 'unit',
+							'label'   => __( 'Number of Posts', 'wds-bb-custom-field' ),
+							'default' => Post_Category_List_Module::POST_COUNT_DEFAULT,
+						),
+						'post_categories' => array(
 							'type'  => 'wds-bb-post-categories',
-							'label' => __( 'Filter Categories Primary', 'wds-bb-custom-field' ),
+							'label' => __( 'Categories to Include', 'wds-bb-custom-field' ),
 						),
 					),
 				),
