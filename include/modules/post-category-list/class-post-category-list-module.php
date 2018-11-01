@@ -46,7 +46,7 @@ class Post_Category_List_Module extends FLBuilderModule {
 	 *
 	 * @return WP_Query
 	 * @author Justin Foell <justin.foell@webdevstudios.com>
-	 * @since  NEXT
+	 * @since  1.0
 	 */
 	public function category_posts_query() {
 		return new WP_Query( array(
