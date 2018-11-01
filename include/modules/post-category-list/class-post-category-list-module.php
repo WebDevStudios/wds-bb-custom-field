@@ -51,7 +51,6 @@ class Post_Category_List_Module extends FLBuilderModule {
 	public function category_posts_query() {
 		return new WP_Query( array(
 			'posts_per_page' => $this->settings->post_count,
-			'nopaging'       => true,
 			'tax_query'      => array(
 				array(
 					'taxonomy' => 'category',
