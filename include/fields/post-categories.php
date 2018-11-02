@@ -7,8 +7,7 @@
  * @package WDS_BB_Custom_Field
  */
 
-$cats = get_categories();
-foreach ( $cats as $category ) :
+foreach ( get_categories() as $category ) :
 ?>
 	<div>
 		<label>
