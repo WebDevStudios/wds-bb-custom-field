@@ -31,10 +31,10 @@ class Post_Category_List_Module extends FLBuilderModule {
 	public function __construct() {
 		parent::__construct(
 			array(
-				'name'        => __( 'Post Category List', 'wds-beaver-builder' ),
-				'description' => __( 'A post category list module.', 'wds-beaver-builder' ),
-				'group'       => __( 'WDS Modules', 'wds-csc-beaver-builder' ),
-				'category'    => __( 'Posts', 'wds-csc-beaver-builder' ),
+				'name'        => __( 'Post Category List', 'wds-bb-custom-field' ),
+				'description' => __( 'A post category list module.', 'wds-bb-custom-field' ),
+				'group'       => __( 'WDS Modules', 'wds-bb-custom-field' ),
+				'category'    => __( 'Posts', 'wds-bb-custom-field' ),
 				'dir'         => plugin_dir_path( __FILE__ ),
 				'url'         => plugins_url( dirname( __FILE__ ) ),
 			)
