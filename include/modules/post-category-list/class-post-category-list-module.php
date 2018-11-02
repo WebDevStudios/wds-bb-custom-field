@@ -31,10 +31,10 @@ class Post_Category_List_Module extends FLBuilderModule {
 	public function __construct() {
 		parent::__construct(
 			array(
-				'name'        => __( 'Post Category List', 'wds-bb-custom-field' ),
-				'description' => __( 'A post category list module.', 'wds-bb-custom-field' ),
-				'group'       => __( 'WDS Modules', 'wds-bb-custom-field' ),
-				'category'    => __( 'Posts', 'wds-bb-custom-field' ),
+				'name'        => esc_html__( 'Post Category List', 'wds-bb-custom-field' ),
+				'description' => esc_html__( 'A post category list module.', 'wds-bb-custom-field' ),
+				'group'       => esc_html__( 'WDS Modules', 'wds-bb-custom-field' ),
+				'category'    => esc_html__( 'Posts', 'wds-bb-custom-field' ),
 				'dir'         => plugin_dir_path( __FILE__ ),
 				'url'         => plugins_url( dirname( __FILE__ ) ),
 			)
@@ -71,24 +71,24 @@ class Post_Category_List_Module extends FLBuilderModule {
 FLBuilder::register_module(
 	'Post_Category_List_Module', array(
 		'general' => array(
-			'title'    => __( 'General', 'wds-bb-custom-field' ),
+			'title'    => esc_html__( 'General', 'wds-bb-custom-field' ),
 			'sections' => array(
 				'general' => array(
 					'fields' => array(
 						'list_title'      => array(
 							'type'        => 'text',
-							'label'       => __( 'List Title', 'wds-bb-custom-field' ),
+							'label'       => esc_html__( 'List Title', 'wds-bb-custom-field' ),
 							'default'     => '',
-							'placeholder' => __( 'Enter a title or leave blank to omit', 'wds-bb-custom-field' ),
+							'placeholder' => esc_html__( 'Enter a title or leave blank to omit', 'wds-bb-custom-field' ),
 						),
 						'post_count'      => array(
 							'type'    => 'unit',
-							'label'   => __( 'Number of Posts', 'wds-bb-custom-field' ),
+							'label'   => esc_html__( 'Number of Posts', 'wds-bb-custom-field' ),
 							'default' => Post_Category_List_Module::POST_COUNT_DEFAULT,
 						),
 						'post_categories' => array(
 							'type'  => 'wds-bb-post-categories',
-							'label' => __( 'Categories to Include', 'wds-bb-custom-field' ),
+							'label' => esc_html__( 'Categories to Include', 'wds-bb-custom-field' ),
 						),
 					),
 				),
